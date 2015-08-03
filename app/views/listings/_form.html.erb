@@ -1,0 +1,12 @@
+<%= form_for @listing do |f| %>
+	<p><%= f.label :product %></p>
+	<p><%= f.text_field :product %></p>
+
+	<p><%= f.label :required_amount %></p>
+	<p><%= f.text_area :required_amount %></p>
+
+	<p><%= f.label :bulk_cost %></p>
+	<p><%= f.text_area :bulk_cost %></p>
+
+	<%= f.submit :submit %>
+<%end%> 
