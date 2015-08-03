@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: MyString
+  required_amount: 1
+  bulk_cost: 1.5
+
+two:
+  product: MyString
+  required_amount: 1
+  bulk_cost: 1.5
