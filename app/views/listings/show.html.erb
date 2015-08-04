@@ -11,4 +11,5 @@
 <p><%= link_to "Save with Me!", new_listing_portion_path(params[:id]) %></p>
 
 <p><%= link_to 'Edit Listing', edit_listing_path %></p>
+<%= link_to 'Delete Listing', listing_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <p><%= link_to 'Back to Listings', listings_path %></p>
