@@ -1,1 +1,6 @@
-<h1>All Listings</h1>
+<h1>All of Your Active Listings</h1>
+
+<% @listings.each do |listing| %>
+	
+	<p><%= link_to listing.product, listing_path(listing) %></p>
+ <% end %>

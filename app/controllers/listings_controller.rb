@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
 
 	def show
 		@listing = Listing.find(params[:id])
+		@portions = Portion.where(listing_id: params[:listing_id])
 	end
 
 	#def edit 

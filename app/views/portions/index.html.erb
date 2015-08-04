@@ -1,7 +1,3 @@
 <h1>The current portions claimed for <%= @product %>:</h1>
 
-<% @portions.each do |portion| %>
-	<p><%= portion.user.username %> has claimed <%= portion.share %></p>
- <% end %>
-
- <p>The portions remaining to complete the save is <%= @remaining %>!</p>
+<%= render partial: 'portion', collection: @portions %>
