@@ -7,3 +7,8 @@
 <%= render partial: 'portions/portion', collection: @listing.portions %>
 
 <p>The portions remaining to complete the save is <%= @remaining %>!</p>
+
+<p><%= link_to "Save with Me!", new_listing_portion_path(params[:id]) %></p>
+
+<p><%= link_to 'Edit Listing', edit_listing_path %></p>
+<p><%= link_to 'Back to Listings', listings_path %></p>

@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-	before_action :check_user, only: [:update, :destroy, :edit]
+	before_action :check_owner, only: [:update, :destroy, :edit]
 
 	def index
 		@listings = Listing.all.order(created_at: :desc)
@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 
 	def create
 		@listing = current_user.listings.build(listing_params)
+		@listing.owner = current_user.username
 		
 		if @listing.save
 			redirect_to listings_path
@@ -26,19 +27,19 @@ class ListingsController < ApplicationController
 		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
 	end
 
-	#def edit 
-	#	@listing = current_user.listings.find(params[:id])
-	#end
+	def edit 
+		@listing = current_user.listings.find(params[:id])
+	end
 
-	#def update
-	#	@listing = current_user.listings.find(params[:id])
+	def update
+		@listing = current_user.listings.find(params[:id])
 
-	#	if @listing.update(listing_params)
-	#		redirect_to listing_path(@listing)
-	#	else
-	#		render :edit
-	#	end
-	#end
+		if @listing.update(listing_params)
+			redirect_to listing_path(@listing)
+		else
+			render :edit
+		end
+	end
 
 	def destroy
 		@listing = Listing.find(params[:id])
@@ -52,5 +53,12 @@ class ListingsController < ApplicationController
 	def listing_params
 		params.require(:listing).permit(:product, :required_amount, :bulk_cost)
 	end
+
+	def check_owner
+  		unless current_user.username == Listing.find(params[:id]).owner
+  			flash[:alert] = "You must have created the listing in order to edit or delete it."
+  			redirect_to listing_path(params[:id])
+  		end
+  	end
 
 end

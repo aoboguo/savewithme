@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, except: :index
 
+  
+
+private 
+
   def total_claimed(portions)
   	sum = 0
   	portions.each do |portion|

@@ -1,8 +1,9 @@
 class PortionsController < ApplicationController
-	before_action :check_user, only: [:update, :destroy, :edit]
+	before_action :check_owner, only: [:update, :destroy, :edit]
 
 	def index
 		@portions = Portion.where(listing_id: params[:listing_id])
+		@listing = Listing.find(params[:listing_id])
 	end
 
 	def new
@@ -32,8 +33,8 @@ class PortionsController < ApplicationController
 		end
 	end
 
-	#def edit 
-	#end
+	# def edit 
+	# end
 
 	#def update
 	#end
