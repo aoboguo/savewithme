@@ -3,8 +3,6 @@ class PortionsController < ApplicationController
 
 	def index
 		@portions = Portion.where(listing_id: params[:listing_id])
-		@product = @portions[0].listing.product
-		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
 	end
 
 	def new
@@ -49,12 +47,6 @@ class PortionsController < ApplicationController
 			params.require(:portion).permit(:share)
 		end
 
-		def total_claimed(portions)
-			sum = 0
-			portions.each do |portion|
-				sum += portion.share
-			end
-			sum
-		end 
+		
 
 end

@@ -4,4 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!, except: :index
+
+  def total_claimed(portions)
+  	sum = 0
+  	portions.each do |portion|
+  		sum += portion.share
+  	end
+  	sum
+  end 
+
 end

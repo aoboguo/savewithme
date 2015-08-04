@@ -22,7 +22,8 @@ class ListingsController < ApplicationController
 
 	def show
 		@listing = Listing.find(params[:id])
-		@portions = Portion.where(listing_id: params[:listing_id])
+		@portions = @listing.portions
+		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
 	end
 
 	#def edit 
@@ -44,6 +45,7 @@ class ListingsController < ApplicationController
 		@listing.destroy
 		redirect_to listings_path
 	end
+
 
 	private
 

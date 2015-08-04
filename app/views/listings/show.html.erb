@@ -2,6 +2,8 @@
 
 <p>The bulk deal is <%= @listing.required_amount %> <%= @listing.product.pluralize %> for <%= @listing.bulk_cost %></p>
 
+<h3>The current portions claimed for <%= @listing.product %>:</h3>
+
 <%= render partial: 'portions/portion', collection: @listing.portions %>
 
-<%= render partial: 'portions/remaining', number: @remaining %>
+<p>The portions remaining to complete the save is <%= @remaining %>!</p>
