@@ -15,11 +15,22 @@ class PortionsController < ApplicationController
 	def create
 		@listing = Listing.find(params[:listing_id])
 		@portion = @listing.portions.build(portion_params)
-		@portion.user_id = current_user.id
-		if @portion.save
+		@existing_portion = current_user.portions.where(listing_id: params[:listing_id])
+		@existing_portion = @existing_portion[0]
+		if @existing_portion.present?
+			@existing_portion.share += @portion.share
+			@portion.destroy
+
+			current_user.portions.where(listing_id: params[:listing_id])[0].update_attributes(:share => @existing_portion.share)
+
 			redirect_to listing_portions_path
 		else
-			render :new
+			@portion.user_id = current_user.id
+			if @portion.save
+				redirect_to listing_portions_path
+			else
+				render :new
+			end
 		end
 	end
 
