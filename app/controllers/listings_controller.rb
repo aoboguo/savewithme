@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-	before_action :check_owner, only: [:update, :destroy, :edit]
+	before_action :check_owner, only: [:edit, :update, :destroy]
 
 	def index
 		@listings = Listing.all.order(created_at: :desc)
