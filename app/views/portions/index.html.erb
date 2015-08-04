@@ -1,3 +1,5 @@
 <h1>The current portions claimed for <%= @listing.product %>:</h1>
 
 <%= render partial: 'portion', collection: @portions %>
+
+<%= link_to "Back to Listing", listing_path(@listing.id) %>
