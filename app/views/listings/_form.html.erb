@@ -1,3 +1,9 @@
+<% if @listing.errors.present? %>
+	<% @listing.errors.full_messages.each do |msg| %>
+		<p style="color: red"><b><%= msg %></b></p>
+	<% end %>
+<% end %>
+
 <%= form_for @listing do |f| %>
 	<p><%= f.label :product %></p>
 	<p><%= f.text_field :product %></p>
