@@ -24,7 +24,9 @@ class ListingsController < ApplicationController
 	def show
 		@listing = Listing.find(params[:id])
 		@portions = @listing.portions
+
 		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
+
 		
 		@owns = false
 		if @listing.owner == current_user.username

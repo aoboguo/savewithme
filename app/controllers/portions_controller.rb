@@ -2,47 +2,53 @@ class PortionsController < ApplicationController
 	before_action :check_owner, only: [:edit, :update, :destroy]
 
 	def index
-		@portions = Portion.where(listing_id: params[:listing_id])
 		@listing = Listing.find(params[:listing_id])
+		@portions = Portion.where(listing_id: params[:listing_id])
 	end
 
 	def new
-		@portion = Portion.new
 		@listing = Listing.find(params[:listing_id])
+		# MAYBE DON'T NEED THIS
+		@portion = Portion.new
+		@portions = @listing.portions
+		@remaining = @listing.required_amount - total_claimed(@portions)
 	end
 
 	def create
 		@listing = Listing.find(params[:listing_id])
-		@portion = @listing.portions.build(portion_params)
-		@existing_portion = current_user.portions.where(listing_id: params[:listing_id])
-		@existing_portion = @existing_portion[0]
-		if @existing_portion.present?
-			@existing_portion.share += @portion.share
-			@portion.destroy
+		@new_portion = @listing.portions.build(portion_params)
+		@new_portion.user_id = current_user.id
+		@portions = @listing.portions
+		@remaining = @listing.required_amount - total_claimed(@portions)
 
-			current_user.portions.where(listing_id: params[:listing_id])[0].update_attributes(:share => @existing_portion.share)
-
+		# if share_exceeds(@remaining, @new_portion)
+		# 	render :new
+		if @new_portion.save
 			redirect_to listing_path(@listing)
 		else
-			@portion.user_id = current_user.id
-			if @portion.save
-				redirect_to listing_path(@listing)
-			else
-				render :new
-			end
+			render :new	
 		end
 	end
 
 	def edit
-		@portion = current_user.portions.find(params[:id])
 		@listing = Listing.find(params[:listing_id])
+		@portion = current_user.portions.find(params[:id])
+		@portions = @listing.portions
+		@my_portions = current_user.portions.where(listing_id: params[:listing_id]).first
+		@remaining = @listing.required_amount - total_claimed_minus_self(@portions, @my_portions)
 	end
 
 	def update
+		@listing = Listing.find(params[:listing_id])
 		@portion = current_user.portions.find(params[:id])
 
+		@portions = @listing.portions
+		# @remaining = @listing.required_amount - total_claimed(@portions)
+
+		# if share_exceeds(@remaining, @portion)
+		# 	render :new
 		if @portion.update(portion_params)
-			redirect_to listings_path
+			redirect_to listing_path(@listing)
 		else
 			render :edit
 		end
@@ -65,6 +71,7 @@ class PortionsController < ApplicationController
   			flash[:alert] = "You must have created the portion in order to edit or delete it."
   			redirect_to listing_path(params[:id])
   		end
+
   	end 
 
 end

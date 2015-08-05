@@ -2,8 +2,12 @@
 
 <p>You currently are signed up to claim <%= @portion.share %> shares</p>
 
-<p>Please enter how many more shares you would like to add to your current portion.</p>
+<p>Please enter how many total shares you would like.</p>
 
-<p>Additional shares: </p>
+<p>Desired total shares: </p>
 
-<%= render 'form' %>
+<%= form_for [@listing, @portion] do |f| %>
+	<%= f.select :share, 1..@remaining %>
+
+	<%= f.submit :submit %>
+<%end%>

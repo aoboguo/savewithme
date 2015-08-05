@@ -1,6 +1,5 @@
-<%= form_for([@listing, @listing.portions.build]) do |f| %>
-	
-	<p><%= f.text_field :share %></p>
+<%= form_for [@listing, @portion] do |f| %>
+	<%= f.select :share, 1..@remaining %>
 
 	<%= f.submit :submit %>
 <%end%>
