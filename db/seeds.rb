@@ -16,8 +16,8 @@ User.create! username: "aobog", password: "password", password_confirmation: "pa
 puts "Creating users..."
 
 
-Listing.create! product: "eggs", required_amount: 20, bulk_cost: 100.00, owner: User.first.username
-Listing.create! product: "chips", required_amount: 10, bulk_cost: 80.00, owner: User.second.username
+Listing.create! product: "eggs", required_amount: 20, bulk_cost: 100, owner: User.first.username
+Listing.create! product: "chips", required_amount: 10, bulk_cost: 80, owner: User.second.username
 puts "Creating listings..."
 
 
