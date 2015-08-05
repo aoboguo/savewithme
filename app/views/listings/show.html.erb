@@ -1,6 +1,7 @@
 <h1>Saving on <%= @listing.product %></h1>
 
-<p>The bulk price is <%= @listing.required_amount %> <%= @listing.product.pluralize %> for R<%= @listing.bulk_cost %></p>
+<p>The bulk price for <%= @listing.required_amount %> shares of <%= @listing.product.pluralize %> is R<%= @listing.bulk_cost %>.</p>
+<p>With this deal, the unit price for 1 share is R<%= @unit_cost %>. </p>
 
 
 <% if @owns %>
@@ -15,7 +16,7 @@
 
 <%= render partial: 'portions/portion', collection: @listing.portions %>
 
-<p>The portions remaining to complete the save is <%= @remaining %>!</p>
+<p>There are <%= @remaining %> remaining shares needed to complete the save!</p>
 
 
 <% if @joined %>
@@ -24,7 +25,7 @@
     <%= link_to 'Delete Share', listing_portion_path(@listing, @this_portion), method: :delete, data: {confirm: 'Are you sure?'} %>
   </p>
 <% else %>
-  <p><%= link_to "Click here to join the deal!", new_listing_portion_path(params[:id]) %></p>
+  <p><%= link_to "Save with me!", new_listing_portion_path(params[:id]) %></p>
 <% end %>
 
 

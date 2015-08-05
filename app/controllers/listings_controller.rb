@@ -37,6 +37,8 @@ class ListingsController < ApplicationController
 			@joined = true
 		end
 
+		@unit_cost = ((@listing.required_amount.to_f / @listing.bulk_cost.to_f) * 100).ceil / 100.0
+
 	end
 
 	def edit 
