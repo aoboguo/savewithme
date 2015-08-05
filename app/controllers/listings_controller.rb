@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
 		end
 
 		@joined = false
-		@this_portion = current_user.portions.where(listing_id: params[:id])
+		@this_portion = current_user.portions.where(listing_id: params[:id]).first
 		if @this_portion.present?
 			@joined = true
 		end

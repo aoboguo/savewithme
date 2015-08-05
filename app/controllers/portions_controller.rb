@@ -35,6 +35,7 @@ class PortionsController < ApplicationController
 
 	def edit
 		@portion = current_user.portions.find(params[:id])
+		@listing = Listing.find(params[:listing_id])
 	end
 
 	def update
@@ -50,7 +51,7 @@ class PortionsController < ApplicationController
 	def destroy
 		@portion = Portion.find(params[:id])
 		@portion.destroy
-		redirect_to listings_path
+		redirect_to listing_path(params[:listing_id])
 	end
 
 	private
@@ -59,6 +60,11 @@ class PortionsController < ApplicationController
 			params.require(:portion).permit(:share)
 		end
 
-		
+		def check_owner
+  		unless current_user.id == Portion.find(params[:id]).user_id
+  			flash[:alert] = "You must have created the portion in order to edit or delete it."
+  			redirect_to listing_path(params[:id])
+  		end
+  	end 
 
 end
