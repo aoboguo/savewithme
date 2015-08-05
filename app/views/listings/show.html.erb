@@ -2,14 +2,30 @@
 
 <p>The bulk price is <%= @listing.required_amount %> <%= @listing.product.pluralize %> for R<%= @listing.bulk_cost %></p>
 
+
+<% if @owns %>
+  <p>
+    <%= link_to 'Edit Listing', edit_listing_path(@listing) %>&nbsp;|&nbsp;
+    <%= link_to 'Delete Listing', listing_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+<% end %>
+
+
 <h3>The current portions claimed for <%= @listing.product %>:</h3>
 
 <%= render partial: 'portions/portion', collection: @listing.portions %>
 
 <p>The portions remaining to complete the save is <%= @remaining %>!</p>
 
-<p><%= link_to "Save with Me!", new_listing_portion_path(params[:id]) %></p>
 
-<p><%= link_to 'Edit Listing', edit_listing_path %></p>
-<%= link_to 'Delete Listing', listing_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% if @joined %>
+  <p>
+    <%= link_to 'Edit Share', edit_listing_portion_path(@listing, @this_portion) %>&nbsp;|&nbsp;
+    <%= link_to 'Delete Share', listing_portion_path(@listing, @this_portion), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+<% else %>
+  <p><%= link_to "Click here to join the deal!", new_listing_portion_path(params[:id]) %></p>
+<% end %>
+
+
 <p><%= link_to 'Back to Listings', listings_path %></p>

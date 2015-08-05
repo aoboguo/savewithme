@@ -25,6 +25,18 @@ class ListingsController < ApplicationController
 		@listing = Listing.find(params[:id])
 		@portions = @listing.portions
 		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
+		
+		@owns = false
+		if @listing.owner == current_user.username
+			@owns = true
+		end
+
+		@joined = false
+		@this_portion = current_user.portions.where(listing_id: params[:id])
+		if @this_portion.present?
+			@joined = true
+		end
+
 	end
 
 	def edit 
@@ -50,11 +62,11 @@ class ListingsController < ApplicationController
 
 	private
 
-	def listing_params
-		params.require(:listing).permit(:product, :required_amount, :bulk_cost)
-	end
+		def listing_params
+			params.require(:listing).permit(:product, :required_amount, :bulk_cost)
+		end
 
-	def check_owner
+		def check_owner
   		unless current_user.username == Listing.find(params[:id]).owner
   			flash[:alert] = "You must have created the listing in order to edit or delete it."
   			redirect_to listing_path(params[:id])

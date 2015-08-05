@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
 
-  has_many :portions
-  has_many :listings, through: :portions
+  has_many :portions, dependent: :destroy
+  has_many :listings, through: :portions, dependent: :destroy
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -27,4 +27,5 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
+
 end
