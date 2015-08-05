@@ -39,7 +39,7 @@ class ListingsController < ApplicationController
 			@joined = true
 		end
 
-		@unit_cost = ((@listing.required_amount.to_f / @listing.bulk_cost.to_f) * 100).ceil / 100.0
+		@unit_cost = ((@listing.bulk_cost / @listing.required_amount.to_f) * 100).ceil / 100.0
 
 	end
 
@@ -61,6 +61,16 @@ class ListingsController < ApplicationController
 		@listing = Listing.find(params[:id])
 		@listing.destroy
 		redirect_to listings_path
+	end
+
+	def finalize
+		@listing = Listing.find(params[:id])
+		@unit_cost = ((@listing.bulk_cost / @listing.required_amount.to_f) * 100).ceil / 100.0
+		@users_to_costs = {}
+		@listing.users.each do |user|
+			costperperson = cost_per_person(@listing, user.portions.where(listing_id: params[:id]).first.share)
+			@users_to_costs[user] = costperperson
+		end
 	end
 
 

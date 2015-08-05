@@ -21,8 +21,6 @@ class PortionsController < ApplicationController
 		@portions = @listing.portions
 		@remaining = @listing.required_amount - total_claimed(@portions)
 
-		# if share_exceeds(@remaining, @new_portion)
-		# 	render :new
 		if @new_portion.save
 			redirect_to listing_path(@listing)
 		else
@@ -43,10 +41,7 @@ class PortionsController < ApplicationController
 		@portion = current_user.portions.find(params[:id])
 
 		@portions = @listing.portions
-		# @remaining = @listing.required_amount - total_claimed(@portions)
 
-		# if share_exceeds(@remaining, @portion)
-		# 	render :new
 		if @portion.update(portion_params)
 			redirect_to listing_path(@listing)
 		else

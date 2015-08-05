@@ -33,13 +33,8 @@ class ApplicationController < ActionController::Base
      sum - mine.share
     end 
 
-    # def share_exceeds(remaining, portion)
-    #   too_big = false
-    #   if portion.share > remaining
-    #     too_big = true
-    #     flash[:alert] = "You have claimed too many portions."
-    #   end
-    #   too_big
-    # end 
+    def cost_per_person(listing, shares_of_person)
+      (((listing.bulk_cost / listing.required_amount.to_f) * shares_of_person) * 100).ceil / 100.0
+    end
 
 end
