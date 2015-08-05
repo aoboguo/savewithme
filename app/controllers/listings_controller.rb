@@ -13,11 +13,11 @@ class ListingsController < ApplicationController
 		@listing = current_user.listings.build(listing_params)
 		@listing.owner = current_user.username
 		
-		if @listing.save
-			redirect_to listings_path
+		if @listing.save 
+			redirect_to new_listing_portion_path(@listing)
 		else
 			render :new
-		end
+		end		
 
 	end
 
