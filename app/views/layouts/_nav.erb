@@ -1,6 +1,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
-        <div class="container">
+        <div class="fluid container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -30,7 +30,9 @@
 
                     <% if user_signed_in? %>
 
-                   	 	<li><%= link_to 'All Listings in My Area', listings_path, :class => 'navbar-link' %></li>
+                   	 	<li>
+                            <a class="scroll-link" href="listings_path">Local Listings></a>
+                        </li>
 
 	                    <li class="dropdown">
 	                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><%= current_user.username %></strong> <span class="caret"></span></a>
