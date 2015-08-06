@@ -1,19 +1,17 @@
 <div class="container">
-<div class="push_down_content_bc_nav">
+  <div class="push_down_content_bc_nav">
+    <h1>Editing Your Portion</h1>
 
-<h1>Editing Your Portion</h1>
+    <p>You currently are signed up to claim <%= @portion.share %> shares.</p>
 
-<p>You currently are signed up to claim <%= @portion.share %> shares</p>
+    <p>Please enter how many total shares you would like.</p>
 
-<p>Please enter how many total shares you would like.</p>
+    <p>Desired total shares:</p>
 
-<p>Desired total shares: </p>
+    <%= form_for [@listing, @portion] do |f| %>
+    	<%= f.select :share, 1..@remaining %>
 
-<%= form_for [@listing, @portion] do |f| %>
-	<%= f.select :share, 1..@remaining %>
-
-	<%= f.submit :submit %>
-<%end%>
-
-</div>
+    	<%= f.submit :submit %>
+    <%end%>
+  </div>
 </div>

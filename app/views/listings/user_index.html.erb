@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="push_down_content_bc_nav">
+    <h1>My Listings</h1>
+
+    <% @listings.each do |listing| %>
+      <p><%= link_to listing.product, listing_path(listing) %></p>
+     <% end %>
+
+     <p><%= link_to 'Create a New Listing', new_listing_path %></p>
+  </div>
+</div>
