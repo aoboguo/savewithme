@@ -1,3 +1,6 @@
+<div class="container">
+<div class="push_down_content_bc_nav">
+
 <h1>You're gonna save now!</h1>
 
 <h1>Saving on <%= @listing.product %></h1>
@@ -16,3 +19,6 @@
 <% @users_to_costs.each do |user, cost| %>
 	<%= user.username %> should pay R<%= cost %> for <%= pluralize(user.portions.where(listing_id: params[:id]).first.share, 'share') %> of <%= @listing.product %><br>
 <% end %>
+
+</div>
+</div>
