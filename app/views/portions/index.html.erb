@@ -1,5 +1,11 @@
+<div class="container">
+<div class="push_down_content_bc_nav">
+
 <h1>The current portions claimed for <%= @listing.product %>:</h1>
 
 <%= render partial: 'portion', collection: @portions %>
 
 <%= link_to "Back to Listing", listing_path(@listing.id) %>
+
+</div>
+</div>
