@@ -8,11 +8,10 @@
 </head>
 <body id="page-top" class="index">
 
-<%= render 'layouts/nav' %>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/alerts' %>
 
-<%= render 'layouts/alerts' %>
-
-<%= yield %>
+  <%= yield %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
