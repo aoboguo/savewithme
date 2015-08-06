@@ -10,23 +10,23 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 /* makes the top padding = height of nav bar + 10px */
 .push_down_content_bc_nav {
-	padding: 110px 0;
+	padding: 60px 0;
 }
 
 @media(max-width:1200px) {
 	.push_down_content_bc_nav {
-		padding: 110px 0;
+		padding: 60px 0;
 	}
 }
 
 @media(max-width:992px) {
 	.push_down_content_bc_nav {
-		padding: 160px 0;
+		padding: 110px 0;
 	}
 }
 
 @media(max-width:768px) {
 	.push_down_content_bc_nav {
-		padding: 60px 0;
+		padding: 40px 0;
 	}
 }
