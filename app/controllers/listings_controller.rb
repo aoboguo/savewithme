@@ -73,6 +73,10 @@ class ListingsController < ApplicationController
 		end
 	end
 
+	def user_index
+		@listings = Listing.where(owner: current_user.username)
+	end
+
 
 	private
 

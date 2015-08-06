@@ -21,19 +21,15 @@
                     <li>
                         <a class="page-scroll" href="/#intro">What is Save With Me?</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/#ready">Ready to Save?</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/#team">Our Team</a>
-                    </li>
 
                     <% if user_signed_in? %>
 
                    	 	<li>
                             <a class="scroll-link" href="/listings">Local Listings</a>
                         </li>
-
+                        <li>
+                            <a class="scroll-link" href="/my_listings">My Listings</a>
+                        </li>
 	                    <li class="dropdown">
 	                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><%= current_user.username %></strong> <span class="caret"></span></a>
 	                          <ul class="dropdown-menu" role="menu">

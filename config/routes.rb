@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/listings/:id/finalize', to: 'listings#finalize', as: 'complete'
 
+  get '/my_listings', to: 'listings#user_index', as: 'user_index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
