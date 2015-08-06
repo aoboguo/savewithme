@@ -52,8 +52,9 @@ a.active {
     outline: 0;
 }
 
+/* darker for legibility */
 a {
-    color: #fed136;
+    color: #DEA209;
 }
 
 a:hover,
