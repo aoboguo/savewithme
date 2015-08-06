@@ -74,6 +74,10 @@ h6 {
     font-weight: 700;
 }
 
+li {
+    display: inline;
+}
+
 .img-centered {
     margin: 0 auto;
 }
