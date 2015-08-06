@@ -30,6 +30,8 @@
 
                     <% if user_signed_in? %>
 
+                   	 	<li><%= link_to 'All Listings in My Area', listings_path, :class => 'navbar-link' %></li>
+
 	                    <li class="dropdown">
 	                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Logged in as <strong><%= current_user.username %></strong> <span class="caret"></span></a>
 	                          <ul class="dropdown-menu" role="menu">
@@ -37,6 +39,7 @@
 	                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 	                          </ul>
 	                    </li>
+
                     <% else %>
                       <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> 
                       <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
