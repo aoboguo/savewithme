@@ -66,3 +66,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .dropdown-menu {
 	background-color: rgba(0, 0, 0, 0.5);
 }
+
+.big-glyphs {
+	font-size: 36px;
+}
