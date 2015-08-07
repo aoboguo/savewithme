@@ -26,7 +26,7 @@
         </p>
     <% end %>
 
-    <%= render partial: 'portions/portion', collection: @listing.portions %>
+    <div style="text-align: center;"><%= render partial: 'portions/portion', collection: @listing.portions %></div>
 
      <% if !@joined %>
       <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">

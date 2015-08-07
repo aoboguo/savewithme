@@ -1,18 +1,22 @@
 <div class="container">
   <div class="push_down_content_bc_nav">
-    <h1>Saving on <%= @listing.product %></h1>
+    <h1>Finalize your save on <%= @listing.product %></h1>
 
-    <p>The bulk price for <%= pluralize(@listing.required_amount, 'share') %> of <%= @listing.product.pluralize %> is R<%= @listing.bulk_cost %>.</p>
-    <p>With this deal, the unit price for 1 share is R<%= @unit_cost %>. </p>
+    <div style="text-align: center;"><p>The bulk price for <%= pluralize(@listing.required_amount, 'share') %> of <%= @listing.product.pluralize %> is R<%= @listing.bulk_cost %>.</p>
+    <p>With this deal, the unit price for 1 share is R<%= @unit_cost %>. </p></div>
+
+    <hr>
 
     <h3>Portion breakdown:</h3>
 
-    <%= render partial: 'portions/portion', collection: @listing.portions %>
+    <div style="text-align: center;"><%= render partial: 'portions/portion', collection: @listing.portions %></div>
+
+    <hr>
 
     <h3>Cost breakdown:</h3>
 
     <% @users_to_costs.each do |user, cost| %>
-    	<p><%= user.username %> should pay R<%= cost %> for <%= pluralize(user.portions.where(listing_id: params[:id]).first.share, 'share') %> of <%= @listing.product %></p>
+    	<div style="text-align: center;"><p><%= user.username %> should pay R<%= cost %> for <%= pluralize(user.portions.where(listing_id: params[:id]).first.share, 'share') %> of <%= @listing.product %></p></div>
     <% end %>
   </div>
 </div>
