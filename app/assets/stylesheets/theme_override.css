@@ -67,3 +67,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .dropdown-menu {
 	background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+.team-icons {
+	max-width: 250px;
+}
