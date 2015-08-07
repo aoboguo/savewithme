@@ -28,7 +28,6 @@ puts "Creating listings..."
 Portion.create! listing_id: Listing.first.id, user_id: User.first.id, share: 5
 Portion.create! listing_id: Listing.second.id, user_id: User.first.id, share: 2
 Portion.create! listing_id: Listing.first.id, user_id: User.second.id, share: 3
-Portion.create! listing_id: Listing.second.id, user_id: User.second.id, share: 6
 Portion.create! listing_id: Listing.third.id, user_id: User.second.id, share: 10
 Portion.create! listing_id: Listing.fourth.id, user_id: User.first.id, share: 24
 Portion.create! listing_id: Listing.fourth.id, user_id: User.second.id, share: 60

@@ -16,23 +16,24 @@
 
     <hr>
 
-    <h3>The current shares claimed for <%= @listing.product %>:</h3>
-
     <p style="font-size: 20px; text-align: center;"><%= pluralize(@remaining, 'more share') %> available!</p>
 
     <% if @remaining == 0 %>
         <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">
-          <%= link_to "Finalize this purchase!", complete_path(params[:id]) %>
+          <%= link_to "Finalize purchase!", complete_path(params[:id]), class: "page-scroll btn-xl", style: "color: black;" %>
         </p>
     <% end %>
 
+    <% if !@joined %>
+     <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">
+       <%= link_to "Save with me!", new_listing_portion_path(params[:id]), class: "page-scroll btn-xl", style: "color: black;" %>
+       </p>
+     <% end %>
+
+    <h3>Current shares claimed:</h3>
+
     <div style="text-align: center;"><%= render partial: 'portions/portion', collection: @listing.portions %></div>
 
-     <% if !@joined %>
-      <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">
-        <%= link_to "Save with me!", new_listing_portion_path(params[:id]) %>
-        </p>
-        <% end %>
 
     <p style="text-align: center;"><%= link_to 'Back to Local Listings', listings_path %></p>
   </div>

@@ -1,5 +1,5 @@
 <p>
-  <%= portion.user.username %> has claimed <%= pluralize(portion.share, 'share') %>.
+  <%= portion.user.username %> claimed <%= pluralize(portion.share, 'share') %>.
 
 
    <% if portion.user.username == current_user.username %>
