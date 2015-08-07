@@ -35,6 +35,10 @@ body {
     color: #fed136;
 }
 
+.navbar-default.navbar-homepage {
+    background-color: transparent;
+}
+
 p {
     font-size: 14px;
     line-height: 1.75;

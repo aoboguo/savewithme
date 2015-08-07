@@ -1,4 +1,4 @@
-
+<%= render 'nav' %>
     <!-- Header -->
     <header>
         <div class="container">
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">What is Save With Me?</h2>
-                    <h3 class="section-subheading text-muted">Save With Me is a platform for coordinating bulk buying among individuals with the same purchasing needs. <br> <br> Users create their own shopping lists and join those of others in their area to save money by buying in bulk.</h3>
+                    <h3 class="section-subheading text-muted">Save With Me is an integrated platform for mobilizing members of a community around the shared goal of resource conservation. <br><br> Users can create their own shopping lists and join those of others in their area to exploit the power of bulk buying.<br> </h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -26,15 +26,7 @@
                         <i class="fa fa-money fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="intro-heading">Saving You Money</h4>
-                    <p class="text-muted">By allowing people to pool together resources to buy products that they all want to buy, Save With Me helps people access bulk deals instead of spending more money by buying individual or smaller quantities. This reduces the cost of the products to our users.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="intro-heading">Saving You Effort</h4>
-                    <p class="text-muted">Save With Me provides you the platform, the communications tools, and even the option of using our secure payment server to complete the transaction.</p>
+                    <p class="text-muted">By allowing users to pool together resources to buy products in bulk, Save With Me helps individuals access wholesale prices as a cost-saving alternative to buying smaller quantities, which are often more costly per unit. This not only reduces the cost of commonly-needed products, but it also increases the accessibility of products that may otherwise be unattainable.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -42,7 +34,15 @@
                         <i class="fa fa-clock-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="intro-heading">Saving You Time</h4>
-                    <p class="text-muted">Facilitating the collectivization process and providing avenues for people with transportation solutions or adequate time to be the person to pick up the purchase and coordinate with others.</p>
+                    <p class="text-muted">Through the in-app communication system and optional secure payment service, members of a finalized listing can coordinate on the logistics for completing their purchase. Post-purchase analytics will log each user's experience, allowing them to crowdsource future recommendations, contribute to the existing database of local bulk deals, and visualize their overall savings.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="intro-heading">Saving You Effort</h4>
+                    <p class="text-muted">While empowering users to take advantage of the money-saving quality of bulk purchasing, Save With Me simultaneously provides an avenue to circumvent other issues blocking access to products. Coordination on payment and purchasing, for instance, creates potential solutions to impasses such as transportation limitations, lack of time, or unawareness of bulk deals.</p>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Ready To Save? </h2><br>
                     <img src="../img/path-to-sun.jpg">
-                    <h3 class="section-subheading" style="font-size: 26px;"><br><%= link_to "Click here to join the Save With Me family and browse listings in your area!", listings_path %><br><br></h3>
+                    <h3 class="section-subheading" style="font-size: 26px;"><br><%= link_to "Join the Save With Me community and browse listings in your area!", listings_path %><br><br></h3>
                     
                     
                 </div>
@@ -79,11 +79,11 @@
                         <h4>Kleo Greenwood</h4>
                         <p class="text-muted">2013kgreenwood@gmail.com</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://twitter.com/basedkelp"><i class="fa fa-twitter"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://www.facebook.com/actuallykph"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="http://www.neopets.com/userlookup.phtml?user=therealkleo"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -92,13 +92,13 @@
                     <div class="team-member">
                         <img src="img/team/aobo.png" class="img-responsive img-circle" alt="">
                         <h4>Aobo Guo</h4>
-                        <p class="text-muted">aobo.guo@yale.edu</p>
+                        <p class="text-muted">aobo.guo@gmail.com</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://www.facebook.com/aobo.s.guo"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/pub/aobo-guo/a5/403/b10"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -116,24 +116,14 @@
     <aside class="clients">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-6 col-sm-6">
                     <a href="#">
-                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                        <img src="img/logos/ix_logo.png" class="img-responsive img-centered" alt="">
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-6 col-sm-6">
                     <a href="#">
-                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                        <img src="img/logos/brian-logo.png" class="img-responsive img-centered" alt="">
                     </a>
                 </div>
             </div>

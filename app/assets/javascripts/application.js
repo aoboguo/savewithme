@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap
 //= require jquery.easing.min
 //= require agency
 //= require classie
@@ -20,3 +21,5 @@
 //= require jqBootstrapValidation
 //= require turbolinks
 //= require_tree .
+
+$('.dropdown-toggle').dropdown()

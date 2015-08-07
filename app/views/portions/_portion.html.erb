@@ -1,3 +1,14 @@
 <p>
   <%= portion.user.username %> has claimed <%= pluralize(portion.share, 'share') %>.
+
+
+   <% if portion.user.username == current_user.username %>
+ <!--      <p style="font-size: 20px; text-align: center;"> -->
+        <%= link_to 'Edit Share', edit_listing_portion_path(@listing, @this_portion) %> &nbsp;|&nbsp;
+        <%= link_to 'Delete Share', listing_portion_path(@listing, @this_portion), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <!-- </p> -->
+    <% end %>
+
 </p>
+
+

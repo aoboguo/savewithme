@@ -2,9 +2,6 @@
   <div class="push_down_content_bc_nav">
     <h1>Saving on <%= @listing.product %></h1>
 
-    <p>The bulk price for <%= pluralize(@listing.required_amount, 'share') %> of <%= @listing.product.pluralize %> is R<%= @listing.bulk_cost %>.</p>
-    <p>With this deal, the unit price for 1 share is R<%= @unit_cost %>.</p>
-
     <% if @owns %>
       <p>
         <%= link_to 'Edit Listing', edit_listing_path(@listing) %>&nbsp;|&nbsp;
@@ -12,21 +9,25 @@
       </p>
     <% end %>
 
+    <p style="font-size: 20px; text-align: center;">The bulk price for <%= pluralize(@listing.required_amount, 'share') %> of <%= @listing.product.pluralize %> is R<%= @listing.bulk_cost %>.</p>
+    <p style="font-size: 20px; text-align: center;">With this deal, the unit price for 1 share is R<%= @unit_cost %>.</p>
+
+
+
+    <hr>
+
     <h3>The current portions claimed for <%= @listing.product %>:</h3>
+
+    <p style="font-size: 20px; text-align: center;"><%= pluralize(@remaining, 'more share') %> available!</p>
 
     <%= render partial: 'portions/portion', collection: @listing.portions %>
 
-    <p><%= pluralize(@remaining, 'more share') %> available!</p>
+     <% if !@joined %>
+      <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">
+        <%= link_to "Save with me!", new_listing_portion_path(params[:id]) %>
+        </p>
+        <% end %>
 
-    <% if @joined %>
-      <p>
-        <%= link_to 'Edit Share', edit_listing_portion_path(@listing, @this_portion) %>&nbsp;|&nbsp;
-        <%= link_to 'Delete Share', listing_portion_path(@listing, @this_portion), method: :delete, data: {confirm: 'Are you sure?'} %>
-      </p>
-    <% else %>
-      <p><%= link_to "Save with me!", new_listing_portion_path(params[:id]) %></p>
-    <% end %>
-
-    <p><%= link_to 'Back to Local Listings', listings_path %></p>
+    <p style="text-align: center;"><%= link_to 'Back to Local Listings', listings_path %></p>
   </div>
 </div>
