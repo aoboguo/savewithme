@@ -16,9 +16,15 @@
 
     <hr>
 
-    <h3>The current portions claimed for <%= @listing.product %>:</h3>
+    <h3>The current shares claimed for <%= @listing.product %>:</h3>
 
     <p style="font-size: 20px; text-align: center;"><%= pluralize(@remaining, 'more share') %> available!</p>
+
+    <% if @remaining == 0 %>
+        <p class="btn-xl" style="margin: 0 auto; width: 400px; font-size: 25x; text-align: center;">
+          <%= link_to "Finalize this purchase!", complete_path(params[:id]) %>
+        </p>
+    <% end %>
 
     <%= render partial: 'portions/portion', collection: @listing.portions %>
 

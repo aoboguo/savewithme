@@ -1,6 +1,6 @@
 <div class="container">
   <div class="push_down_content_bc_nav">
-    <h1>All Active Listings in My Area</h1>
+    <h1>All Listings in My Area</h1>
 
 	<% @listings.each do |listing| %>
 		<p style="font-size: 20px; text-align: center;"><%= link_to listing.product, listing_path(listing) %></p>

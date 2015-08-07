@@ -27,7 +27,6 @@ class ListingsController < ApplicationController
 
 		@remaining = @portions[0].listing.required_amount - total_claimed(@portions)
 
-		
 		@owns = false
 		if @listing.owner == current_user.username
 			@owns = true
@@ -64,7 +63,20 @@ class ListingsController < ApplicationController
 	end
 
 	def finalize
+
 		@listing = Listing.find(params[:id])
+
+		@owns = false
+		if @listing.owner == current_user.username
+			@owns = true
+		end
+
+		@joined = false
+		@this_portion = current_user.portions.where(listing_id: params[:id]).first
+		if @this_portion.present?
+			@joined = true
+		end
+		
 		@unit_cost = ((@listing.bulk_cost / @listing.required_amount.to_f) * 100).ceil / 100.0
 		@users_to_costs = {}
 		@listing.users.each do |user|

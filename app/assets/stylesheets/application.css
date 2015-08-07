@@ -27,6 +27,10 @@ body {
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.navbar.navbar-default.navbar-fixed-top.navbar-shrink.navbar-all-pages {
+    background-color: black;
+}
+
 .text-muted {
     color: #777;
 }
